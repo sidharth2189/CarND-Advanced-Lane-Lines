@@ -17,3 +17,5 @@ A pipeline for lane identification that identifies the lane boundaries in a vide
 5) Output_project_video.mp4 is the output file from testing the pipeline on project_video.mp4
 
 6) write_up.md explains how the project objectives were approached.
+
+Reference Repository: https://github.com/udacity/CarND-Advanced-Lane-Lines
