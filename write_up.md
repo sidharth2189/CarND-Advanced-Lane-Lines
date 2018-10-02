@@ -53,8 +53,26 @@ Using `cv2.undistort(image, mtx, dist, None, mtx)`, the test image was distortio
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+I used a combination of color and gradient thresholds to generate a binary image in cell 8.  
+The distortion corrected image was first converted into HLS color space. The sobe operator `cv2.Sobel()` was applied to this image to calculate gradient in x-direction. Regions inside the binary threshold range `sx_thresh=(20, 100)` were retained and the rest was blacked out. Further, the s-channel in the image was similarly thresholded in a binary range `s_thresh=(170, 255)`
 
+`sxbinary[(scaled_sobel >= sx_thresh[0]) & (scaled_sobel <= sx_thresh[1])] = 1
+s_binary[(s_channel >= s_thresh[0]) & (s_channel <= s_thresh[1])] = 1
+
+combined_binary = np.zeros_like(sxbinary)
+combined_binary[(s_binary == 1) | (sxbinary == 1)] = 1`
+
+The binary thresholded image was region masked to keep the areas where lanes are found in the image using `cv2.fillPoly()` and `cv2.bitwise_and()` in the mask function in cell 7.
+
+`left = (100, img.shape[0])
+    apex1 = (600, 400)
+    apex2 = (700, 400)
+    right = (1150, img.shape[0])
+    vertices = np.array([[left, apex1, apex2, right]], dtype=np.int32)
+    
+ combined_binary = mask_area(combined_binary, vertices)`
+
+Here's an example of my output for this step.
 ![alt text][image4]
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
