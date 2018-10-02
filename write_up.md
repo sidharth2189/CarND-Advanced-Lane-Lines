@@ -124,7 +124,7 @@ Then I fit my lane lines with a 2nd order polynomial using the `np.polyfit funct
 
 In the function `measure_curvature_pixels()` in cell 14 of the code file, I calculate the vehicle position, left and right curvature values. 
 
-The curvature calculation can be done as show [here](https://classroom.udacity.com/nanodegrees/nd013/parts/edf28735-efc1-4b99-8fbb-ba9c432239c8/modules/5d1efbaa-27d0-4ad5-a67a-48729ccebd9c/lessons/626f183c-593e-41d7-a828-eda3c6122573/concepts/2f928913-21f6-4611-9055-01744acc344f)
+The curvature calculation can be done as show [here](https://www.intmath.com/applications-differentiation/8-radius-curvature.php)
 
 The curvature is calculated at the maximum Y-value. Convert the value from pixels to metres for the polynomial fit obtained previously.
 For the vehicle position, the left and right position of x at max Y-value are calculated so that the lane mid-point can be fetched. The deviation of the midpoint of the lane from the center of the image is the offset we're looking for.
