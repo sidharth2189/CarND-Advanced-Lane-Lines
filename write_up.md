@@ -159,4 +159,4 @@ Also, once this is possible, a sanity check can be implemented as to whether the
 
 Further if sanity checks reveal that the lane lines I've detected are problematic for some reason, I can simply assume it was a bad or difficult frame of video, and retain the previous positions from the frame prior and step to the next frame to search again.
 
-So currently, the algorithm will fail if the lanes curve sharply or if there is continued color changes in pavement around the slope of the lane. 
+So currently, the algorithm will fail if the lanes curve sharply or if one of the lanes goes out of camera frame or if there is continued color changes in pavement around the slope of the lane. 
