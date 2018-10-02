@@ -131,7 +131,7 @@ For the vehicle position, the left and right position of x at max Y-value are ca
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in cell 15 of the code file, in the function `draw_Lane`.  Here is an example of my result on a test image:
+I implemented this step in cell 15 of the code file, in the function `draw_Lane()`.  The function takes in the binary thresholded-masked image and the inverse perspective transform matrix to project the lane lines back on the undistorted image. Here is an example of my result on a test image:
 
 ![alt text][image7]
 
