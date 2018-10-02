@@ -149,4 +149,16 @@ Here's a [link to my video result](./Output_project_video.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further. 
+
+The approach was based on the regular slididng window apparoach to track the lane lines out into the distance. However, using the full algorithm from before and starting fresh on every frame is inefficient, as the lines don't necessarily move a lot from frame to frame.
+
+In the next frame of video one need not do a blind search again, but instead can just search in a margin around the previous line position, like in the above image. So, once I know where the lines are in one frame of video, I can do a highly targeted search for them in the next frame. 
+
+For this, there should be a class implemented that stores values of left and right lane x,y values from frame to frame. This was difficult to implement owing to unfamiliarity with implementation of instances of classes on my part. 
+
+Also, once this is possible, a sanity check can be implemented as to whether the lane lines are parallel, separated by equal horizontal distance and have similar curvature.
+
+Further if sanity checks reveal that the lane lines I've detected are problematic for some reason, I can simply assume it was a bad or difficult frame of video, and retain the previous positions from the frame prior and step to the next frame to search again.
+
+So currently, the algorith will fail if the lanes curve sharply or if there is continued color changes in pavement around the slope of the lane. 
