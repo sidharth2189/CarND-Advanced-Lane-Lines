@@ -64,13 +64,15 @@ combined_binary[(s_binary == 1) | (sxbinary == 1)] = 1`
 
 The binary thresholded image was region masked to keep the areas where lanes are found in the image using `cv2.fillPoly()` and `cv2.bitwise_and()` in the mask function in cell 7.
 
-`left = (100, img.shape[0])
+```python
+left = (100, img.shape[0])
     apex1 = (600, 400)
     apex2 = (700, 400)
     right = (1150, img.shape[0])
     vertices = np.array([[left, apex1, apex2, right]], dtype=np.int32)
     
- combined_binary = mask_area(combined_binary, vertices)`
+ combined_binary = mask_area(combined_binary, vertices)
+ ```
 
 Here's an example of my output for this step.
 ![alt text][image4]
