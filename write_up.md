@@ -45,10 +45,10 @@ I then used the output `obj_points` and `img_points` to compute the camera calib
 
 #### 1. Provide an example of a distortion-corrected image.
 
-To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
+The camera matrix and distortion coefficients calculated from camera calibration step, were used to apply distortion correction to one of the test images like this one: 
 ![alt text][image2]
 
-After distortion correction, the above test image looks as below
+Using `cv2.undistort(image, mtx, dist, None, mtx)`, the test image was distortion corrected. After distortion correction, the above test image looks as below
 ![alt text][image3]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
