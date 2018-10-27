@@ -153,9 +153,9 @@ The approach was based on the regular slididng window approach to track the lane
 
 In the next frame of video one need not do a blind search again, but instead can just search in a margin around the previous line position, like in the above image. So, once I know where the lines are in one frame of video, I can do a highly targeted search for them in the next frame. 
 
-For this, there should be a class implemented that stores values of left and right lane x,y values from frame to frame. This was difficult to implement owing to unfamiliarity with implementation of instances of classes on my part. 
+For this, there should be a class implemented that stores values of left and right lane x,y values from frame to frame. This was difficult to implement owing to unfamiliarity with implementation of instances of classes. 
 
-Also, once this is possible, a sanity check can be implemented as to whether the lane lines are parallel, separated by equal horizontal distance and have similar curvature.
+After the class implementation, a sanity check can be implemented as to whether the lane lines are parallel, separated by equal horizontal distance and have similar curvature.
 
 Further if sanity checks reveal that the lane lines I've detected are problematic for some reason, I can simply assume it was a bad or difficult frame of video, and retain the previous positions from the frame prior and step to the next frame to search again.
 
